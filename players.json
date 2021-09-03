@@ -1,0 +1,22 @@
+[
+    {
+        "Name": "tyler",
+        "Cell": 7632915560,
+        "Provider": "Sprint",
+        "Numbers": 4,
+        "Email": "Tylerstruntz@gmail.com",
+        "Preference": "Text",
+        "Picks": []
+    },
+    {
+        "Name": "dean",
+        "Cell": 6124236084,
+        "Provider": "Sprint",
+        "Numbers": 10,
+        "Email": "Deanstruntz@yahoo.com",
+        "Preference": "Email",
+        "Picks": []
+    }
+
+    
+]
