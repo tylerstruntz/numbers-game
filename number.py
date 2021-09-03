@@ -71,6 +71,8 @@ class Numbers:
     def sms_string(self, provider, cell):
         if provider == 'sprint' or provider == 'Sprint':
             to_mail = '{}@messaging.sprintpcs.com'.format(cell)
+        elif provider == 'Verizon' or provider == 'verizon':
+            to_mail = '{}@vtext.com'.format(cell)
         return to_mail
     # End sms_string
 
@@ -89,7 +91,7 @@ class Numbers:
 
                 greeting_sms = ("From: %s\r\n" % self.email
                         + "To: %s\r\n" % players['Email']
-                        + "Subject: %s\r\n" % "Vikings vs Bengals Week 1"
+                        + "Subject: %s\r\n" % "Vikings vs Bengals Week 1. ${} Squares".format(self.price)
                         + "\r\n"
                         + greeting_msg)
 
@@ -110,10 +112,14 @@ class Numbers:
                 else: 
                     to_mail = players['Email']
                 
-                server.sendmail(self.email, to_mail, greeting_sms)
-                server.sendmail(self.email, to_mail, numbers_sms)
-                server.sendmail(self.email, to_mail, closing_sms)
-                server.sendmail(self.email, to_mail, link_sms)
+                if players['Preference'] == 'Email':
+                    msg = greeting_sms + ' ' + numbers_msg + ' ' + closing_msg + ' ' + link_sms
+                    server.sendmail(self.email, to_mail, msg)
+                else:
+                    server.sendmail(self.email, to_mail, greeting_sms)
+                    server.sendmail(self.email, to_mail, numbers_sms)
+                    server.sendmail(self.email, to_mail, closing_sms)
+                    server.sendmail(self.email, to_mail, link_sms)
 
             # End for 
             server.close()
