@@ -121,12 +121,21 @@ class Numbers:
                     server.sendmail(self.email, to_mail, closing_sms)
                     server.sendmail(self.email, to_mail, link_sms)
 
+                self.log(players['Name'], players['Cell'], players['Picks'])
+
             # End for 
             server.close()
         except Exception as e:
             print('something went wrong. . . {}'.format(e))
         # End try-except
     # End send_message
+
+    def log(self, player, cell, picks):
+        msg = '{}, {}, {}\n'.format(player, cell, picks)
+        f = open('log.txt', 'a')
+        f.write(msg)
+        f.close()
+    # End log
 
     def run(self):
         self.get_players()
@@ -137,4 +146,3 @@ class Numbers:
 if __name__ == "__main__":
     num = Numbers()
     num.run()    
-    

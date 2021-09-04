@@ -16,6 +16,15 @@
         "Email": "Deanstruntz@yahoo.com",
         "Preference": "Email",
         "Picks": []
+    },
+    {
+        "Name": "tony",
+        "Cell": 7634430507,
+        "Provider": "Sprint",
+        "Numbers": 10,
+        "Email": "tonystruntz@yahoo.com",
+        "Preference": "Text",
+        "Picks": []
     }
 
 
